@@ -1,14 +1,27 @@
-# to do: need to check how SLURM terminate processes?
-
+#################
+# NAME
+#	fix_bash.sh
+#
+# SYNOPSIS
+#       source fix_bash.sh [-i]
+#
+# DESCRIPTION
+#	See readme file on Github (https://github.com/civier/fix_bash)
+#
+#	The following options are available:
+#
+#	-i	when sourced from interactive shell
+# 
+# AUTHOR
+#	fix_bash was originally written by Oren Civier (https://github.com/civier)
+#
+#################
 function catch_error()
 {
 	echo "SCRIPT ERROR: Line $1 of $2 exited with error code $3. Info above. Quitting"
 	sed -n $1p $2 | grep -v '^.*=$(' | grep "^.*=.*['}] "
 	echo "REMOVE UNNECESSARY SPACE IN THE ABOVE ASSIGNMENT COMMAND"
 }
-
-# excute ozstar one
-source /apps/lmod/lmod/lmod/init/bash
 
 set -uo pipefail
 # to check if variable exists with -u turn on, use [ -v VAR_NAME ] or [ $# -gt 0 ] if arguments
