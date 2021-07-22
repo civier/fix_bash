@@ -29,3 +29,8 @@ or in the case of input parameters to the script,
 **if [ $# -gt 0 ] then** ...     (this checks if at least one input parameter was provided; to check if at least X parameters were provided, replace 0 with the value of X-1) 
 
 
+TO DO:
+1) Publish in Slack
+2) Mention that expect user not to use spaces in assignment statements
+
+
