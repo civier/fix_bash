@@ -16,13 +16,14 @@ You may source fix_bash.sh also when starting an interactive bash session on the
 
 otherwise, unexpected behaviour might occur. Be especially careful if sourcing fix_bash.sh automatically when opening a terminal (e.g., putting it in .bashrc), as failing to include the -i flag might block you from logging into the server.
 
-Lastly, to turn on debug information after sourcing fix_bash, add the following command to your script (or if in interactive shell, type it into the terminal):
+Lastly, to run a script(s) that use(s) fix_bash.sh with debug information, run the following in the terminal before calling the script(s):
 
 **INFO=1**
 
-To turn debug information off, use the command:
+To turn debug information off, run this command in the terminal:
 
 **unset INFO**
+
 
 WORD OF CAUTION #1: the setting changed by fix_bash.sh WILL NOT propagate to other bash scripts you may call from your scripts / the terminal, so you need to source fix_bash.sh from each and every script you write.
 
