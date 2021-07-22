@@ -16,6 +16,11 @@ You may source fix_bash.sh also when starting an interactive bash session on the
 
 otherwise, unexpected behaviour might occur. Be especially careful if sourcing fix_bash.sh automatically when opening a terminal (e.g., putting it in .bashrc), as failing to include the -i flag might block you from logging into the server.
 
+Lastly, to turn on debug information after sourcing fix_bash, add the following command to your script (or if in interactive shell, type it into the terminal):
+
+**INFO=1**
+
+
 WORD OF CAUTION #1: the setting changed by fix_bash.sh WILL NOT propagate to other bash scripts you may call from your scripts / the terminal, so you need to source fix_bash.sh from each and every script you write.
 
 WORD OF CAUTION #2: the setting changed by fix_bash.sh WILL propagate to other bash scripts that you source using the source command, and it might make them stop working (as many bash scripts unfortunately assume that bash is not working like standard programming languages). Sourcing bash scripts is common for install/configuration scripts that need to set-up your working environment in interactive bash sessions. In these instances, it is advised to source fix_bash.sh only after the install/configuration scripts were sourced.
