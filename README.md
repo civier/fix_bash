@@ -28,9 +28,6 @@ or in the case of input parameters to the script,
 
 **if [ $# -gt 0 ] then** ...     (this checks if at least one input parameter was provided; to check if at least X parameters were provided, replace 0 with the value of X-1) 
 
-
-TO DO:
-1) Publish in Slack
-2) Mention that expect user not to use spaces in assignment statements
+WORD OF CAUTION #4: one of the most common errors when programming in bash is including a space character in an assignment command (i.e., VAR=) without putting it between quotes or escaping it with \. Because it is so obiquitous, fix_bash configures bash to print an error message just for this error. That said, to keep it simple I assume that the user only utilises single quotes after an assignment commands, and only refers to variables using ${ } (rather than an initial $ without curly brackets). If you are not using these conventions, error messages for assignment commands might be confusing/inaccurate (you are welcome to contact me on GitHub for an explanation of why these conventions make sense, at least for novice users). 
 
 
