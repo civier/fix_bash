@@ -20,6 +20,9 @@ Lastly, to turn on debug information after sourcing fix_bash, add the following 
 
 **INFO=1**
 
+To turn debug information off, use the command:
+
+**unset INFO**
 
 WORD OF CAUTION #1: the setting changed by fix_bash.sh WILL NOT propagate to other bash scripts you may call from your scripts / the terminal, so you need to source fix_bash.sh from each and every script you write.
 
