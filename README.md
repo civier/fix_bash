@@ -18,7 +18,7 @@ otherwise, unexpected behaviour might occur. Be especially careful if sourcing f
 
 Lastly, to run a script(s) that use(s) fix_bash.sh with debug information, run the following in the terminal before calling the script(s):
 
-**INFO=1**
+**export INFO=1**
 
 To turn debug information off, run this command in the terminal:
 
