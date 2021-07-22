@@ -20,7 +20,7 @@ function catch_error()
 {
 	echo "SCRIPT ERROR: Line $1 of $2 exited with error code $3. Info above. Quitting"
 	sed -n $1p $2 | grep -v '^.*=$(' | grep "^.*=.*['}] "
-	echo "REMOVE UNNECESSARY SPACE IN THE ABOVE ASSIGNMENT COMMAND"
+	echo 'REMOVE SPACE CHARACTERS THAT ARE NOT BETWEEN SINGLE QUOATES IN THE ABOVE ASSIGNMENT COMMAND'
 }
 
 set -uo pipefail
