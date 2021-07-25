@@ -31,7 +31,7 @@ WORD OF CAUTION #3: one of the flags that is turned on by fix_bash is -u. With t
 
 **if [ -v VARNAME ] then** ...  (replacing VARNAME with the name of the variable, without the leadinhg $)
 
-or in the case of input parameters to the script, 
+or in the case you want to test whether input parameters were provided when the script was called, use
 
 **if [ $# -gt 0 ] then** ...     (this checks if at least one input parameter was provided; to check if at least X parameters were provided, replace 0 with the value of X-1) 
 
