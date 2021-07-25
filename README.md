@@ -27,7 +27,7 @@ WORD OF CAUTION #1: the setting changed by fix_bash.sh WILL NOT propagate to oth
 
 WORD OF CAUTION #2: the setting changed by fix_bash.sh WILL propagate to other bash scripts that you source using the source command, and it might make them stop working (as many bash scripts unfortunately assume that bash is not working like standard programming languages). Sourcing bash scripts is common for install/configuration scripts that need to set-up your working environment in interactive bash sessions. In these instances, it is advised to source fix_bash.sh only after the install/configuration scripts were sourced.
 
-WORD OF CAUTION #3: one of the flags that is turned on is -u. With this flag on, bash will print an error and exit if a command tries to access an undefined varibale. To check if a variable is defined (before trying to access it), use 
+WORD OF CAUTION #3: one of the flags that is turned on by fix_bash is -u. With this flag on, bash will print an error and exit if a command tries to access an undefined varibale. To check if a variable is defined (before trying to access it), use 
 
 **if [ -v VARNAME ] then** ...  (replacing VARNAME with the name of the variable, without the leadinhg $)
 
