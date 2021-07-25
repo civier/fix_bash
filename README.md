@@ -8,8 +8,6 @@ The fix_bash.sh script does just this. Simply source it in the beginning of your
 
 **source fix_bash.sh**
 
-and your script will behave the way you expect it to.
-
 You may source fix_bash.sh also when starting an interactive bash session on the terminal, but BE SURE to add the -i flag (for interactive):
 
 **source fix_bash.sh -i**
