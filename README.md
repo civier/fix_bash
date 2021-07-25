@@ -12,7 +12,7 @@ You may source fix_bash.sh also when starting an interactive bash session on the
 
 **source fix_bash.sh -i**
 
-otherwise, unexpected behaviour might occur. Be especially careful if sourcing fix_bash.sh automatically when opening a terminal (e.g., putting it in .bashrc), as failing to include the -i flag might block you from logging into the server.
+without the -i flag, unexpected behaviour might occur. Be especially careful if sourcing fix_bash.sh automatically when opening a terminal (e.g., putting it in .bashrc), as failing to include the -i flag might block you from logging into the server.
 
 Lastly, to run a script(s) that use(s) fix_bash.sh with debug information (basically, printing out each command that is executed with its line number), run the following in the terminal before calling the script(s):
 
