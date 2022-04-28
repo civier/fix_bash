@@ -37,6 +37,10 @@ or in the case you want to test whether input parameters were provided when the 
 
 WORD OF CAUTION #4: one of the most common errors when programming in bash is including a space character in an assignment command (i.e., VAR=) without putting it between quotes or escaping it with a leading slash. Because it is so obiquitous, fix_bash configures bash to print an error message just for this error. That said, to keep it simple I assume that the user only utilises single quotes after an assignment commands (avoiding double quotes, except if they come within single quotes), and only refers to variables using ${ } (rather than an initial $ without curly brackets). If you are not using these conventions, error messages for assignment commands might be confusing/inaccurate (you are welcome to contact me on GitHub for an explanation of why these conventions make sense, at least for novice users). 
 
+KNOWN BUGS
+
+- If a script was called using a relative path (without initial /) and the current directory is changed during the script, fix_bash.sh might not work anymore as intended.
+
 ACKNOWLEDGMENTS
 
 The authors acknowledge the facilities and scientific and technical assistance of the National Imaging Facility, a National Collaborative Research Infrastructure Strategy (NCRIS) capability, at Swinburne Neuroimaging, Swinburne University of Technology.
