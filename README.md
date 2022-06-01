@@ -1,8 +1,8 @@
 # fix_bash
 
-The bash shell is notoriously out-of-date with modern programming languages. Not surprising given that it was born (again ;-) ) in 1989, two years before Python. It also tries to keep compatibility with the ancient 1979 Bourne shell, which doesn't help.
+The Linux bash shell is notoriously out-of-date with modern programming languages. Not surprising given that it was born (again ;-) ) in 1989, two years before Python. It also tries to keep compatibility with the ancient 1979 Bourne shell, which doesn't help.
 
-That said, there are several flags that can be set to change the behaviour of bash to be more similar to what we expect from a programming language. Moreover, traps can be added to catch certain errors, debug, and print more informative error messages than those provided by bash by default.
+That said, there are several flags that can be set to change the behaviour of bash to be more similar to what we expect from a programming language (e.g., quitting on error rather than continuing to execute the script; very important in long pipelines or to help debug scripts). Moreover, traps can be added to catch certain errors, debug, and print more informative error messages than those provided by bash by default.
 
 The fix_bash.sh script does just this. Simply source it in the beginning of your bash scripts using:
 
