@@ -26,6 +26,8 @@ function catch_error()
 set -uo pipefail
 # to check if variable exists with -u turn on, use [ -v VAR_NAME ] or [ $# -gt 0 ] if arguments
 shopt -s failglob lastpipe
+# exit tee immediately if cannot write to output file
+alias tee='tee --output-error=exit'
 
 if [ $# -gt 0 ] && [ "$1"  == "-i" ]
 then
