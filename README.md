@@ -1,4 +1,4 @@
-# fix_bash 1.1
+# fix_bash.sh 1.1
 
 The Linux bash shell is notoriously out-of-date with modern programming languages. Not surprising given that it was born (again ;-) ) in 1989, two years before Python. It also tries to keep compatibility with the ancient 1979 Bourne shell, which doesn't help.
 
