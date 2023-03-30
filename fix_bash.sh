@@ -16,18 +16,32 @@
 #	fix_bash was originally written by Oren Civier (https://github.com/civier)
 #
 #################
+# to do: need to check how SLURM terminate processes?
+
 function catch_error()
 {
 	echo "SCRIPT ERROR: Line $1 of $2 exited with error code $3. Info above. Quitting"
 	sed -n $1p $2 | grep -v '^.*=$(' | grep "^.*=.*['}] "
-	echo 'REMOVE SPACE CHARACTERS THAT ARE NOT BETWEEN SINGLE QUOATES IN THE ABOVE ASSIGNMENT COMMAND'
+	echo 'THERE *MAY* BE AN UNNECESSARY SPACE IN THE ABOVE ASSIGNMENT COMMAND'
+}
+
+log () 
+{
+    if echo > $1
+    then
+        tee $1
+    else
+        exit_code=$?
+        echo 'log: cannot create or write to log file '$1 1>&2
+        exit "$exit_code"
+    fi
 }
 
 set -uo pipefail
 # to check if variable exists with -u turn on, use [ -v VAR_NAME ] or [ $# -gt 0 ] if arguments
 shopt -s failglob lastpipe
-# exit tee immediately if cannot write to output file
-alias tee='tee --output-error=exit'
+# configure tee to exist directly if cannot create output file -- does not work on OzStar
+#alias tee='tee --output-error=exit'
 
 if [ $# -gt 0 ] && [ "$1"  == "-i" ]
 then
