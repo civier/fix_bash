@@ -4,7 +4,7 @@ The Linux bash shell is notoriously out-of-date with modern programming language
 
 That said, there are several flags that can be set to change the behaviour of bash to be more similar to what we expect from a programming language (e.g., quitting on error rather than continuing to execute the script; very important in long pipelines or to help debug scripts). Moreover, traps can be added to catch certain errors, debug, and print more informative error messages than those provided by bash by default.
 
-The fix_bash.sh script does just this. Simply source it in the beginning of your bash scripts using:
+The fix_bash.sh script does just that. Simply source it in the beginning of your bash scripts using:
 
 **source fix_bash.sh**
 
