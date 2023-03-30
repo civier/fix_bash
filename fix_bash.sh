@@ -54,21 +54,24 @@ then
 else
 	# non-interacrive shell. Setting traps and exit on error
 
-	# no need to do below for interactive shell, as already done on OzStar
-	export GREP_OPTIONS='--color=always'
+	# Extract full path of script
+	real_path="$(realpath -e $0)"
+
+	# removed because depricated. Also, no need to do below for interactive shell, as already done on OzStar
+	#export GREP_OPTIONS='--color=always'
 
 	# print error message when script error (to do: supress this message if SIGINT or SIGTERM; currently print it, with line number 1)
-	trap 'catch_error $LINENO $0 $?' ERR
+	trap 'catch_error $LINENO $real_path $?' ERR
 	## GOOD ## trap 'echo "ERROR: Line $LINENO of $0 exited with error code $?. Info above. Quitting"; sed -n ${LINENO}p $0 | grep -v ^\.\*=\$\( | grep ^\.\*=\.\*\  ; echo "CHECEK FOR UNNECESSARY SPACE IN THE ABOVE ASSIGNMENT COMMAND"' ERR   
 	# print a message to record that process with stopped by user (to do: check how to make line number correct, if possible)
-	trap '1>&2 echo ERROR: User halted execution with Ctrl-C at line $LINENO of $0' SIGINT
+	trap '1>&2 echo ERROR: User halted execution with Ctrl-C at line $LINENO of $real_path' SIGINT
 	# catch kill; if not exiting myself, so a kill <PROCESS_ID> command will be catched, but not terminate the process (to do: check how to make line number correct, if possible)
-	trap '1>&2 echo ERROR: Execution halted externally at line $LINENO of $0; exit 143' SIGTERM
+	trap '1>&2 echo ERROR: Execution halted externally at line $LINENO of $real_path; exit 143' SIGTERM
 	# print DEBUG message; put it last so won't print debug messages for this file as well
 	# if [ $# -gt 0 ] && [ "$1"  == "-v" ]
 	if [ -v INFO ]
 	then
-		trap 'if [ $? -eq 0 ] && [ "$0" != bash ]; then sed -n ${LINENO}p $0 | read -r line; 1>&2 echo "INFO: Executing line $LINENO of $0 [$line]"; fi' DEBUG
+		trap 'if [ $? -eq 0 ] && [ "$0" != bash ]; then sed -n ${LINENO}p $real_path | read -r line; 1>&2 echo "INFO: Executing line $LINENO of $real_path [$line]"; fi' DEBUG
 	fi
 	# non-interacrive shell. Setting traps and exit on error
 	set -e
